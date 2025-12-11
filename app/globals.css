@@ -1,28 +1,88 @@
 @import "tailwindcss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "remixicon/fonts/remixicon.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --body-color: #2010fc;
+  --body-color: #060A10;
+  --primary: #E867EA;
+  --secondary: #20DCFB;
+
+  --transition-regular: 0.3s;
+  --transition-slow: 0.6s;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-body: var(--body-color);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-syne: var(--font-syne);
+  --font-storyscript: var(--font-story-script);
+
+  --transition-regular: var(--transition-regular);
+  --transition-slow: var(--transition-slow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.Syne {
+  font-family: var(--font-syne);
+}
+
+.StoryScript {
+  font-family: var(--font-story-script);
+}
+
+.Inter {
+  font-family: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--body-color);
+  color: var(--white);
+}
+
+/* .nav-menu {
+  position: relative;
+  padding: 5px;
+  transition: var(--transition-regular);
+} */
+
+/* Se define 1º las lineas superior e inferior con ancho = 0 */
+.nav-menu::after,
+.nav-menu::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  transition: var(--transition-regular);
+}
+
+/* Se definen las lineas superior e inferior */
+.nav-menu::after {
+  top: 0;
+  left: 0;
+  background-color: var(--secondary);
+}
+
+.nav-menu::before {
+  bottom: 0;
+  right: 0;
+  background-color: var(--primary);
+}
+
+/* Se define el ancho de las lineas superior e inferior al pasar el raton por encima */
+.nav-menu:hover::after,
+.nav-menu:hover::before {
+  width: 100%;
+}
+
+.active-nav::after,
+.active-nav::before {
+  width: 100%;
 }
