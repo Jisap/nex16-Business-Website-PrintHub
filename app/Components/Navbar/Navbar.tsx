@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-body transition-all duration-500">
       <div className="flex justify-between items-center px-[8%] lg:px-[12%] py-4">
-        <div className="flex flex-col leading-tight font-sans text-2xl">
+        <div className="flex flex-col leading-tight font-sans text-2xl text-gray-300">
           <button
             onClick={handleLogoClick}
           >
