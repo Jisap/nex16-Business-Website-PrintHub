@@ -3,6 +3,35 @@
 import Link from "next/link"
 import { useState } from "react"
 
+const quickLinks = [
+  { id: "About", label: "About Us" },
+  { id: "Feature", label: "Feature" },
+  { id: "Services", label: "Services" },
+  { id: "Testimonial", label: "Testimonial" },
+  { id: "WhyChooseUs", label: "Why Choose Us" },
+];
+
+const otherLinks = [
+  { href: "#", label: "Rapid & Precising Prototype" },
+  { href: "#", label: "Additive Manufacturing" },
+  { href: "#", label: "Custom Product Design" },
+  { href: "#", label: "Tooling & Equipment" },
+  { href: "#", label: "Quality Control" },
+];
+
+const socialLinks = [
+  { href: "#", icon: "bi-facebook", label: "Facebook" },
+  { href: "#", icon: "bi-twitter", label: "Twitter" },
+  { href: "#", icon: "bi-instagram", label: "Instagram" },
+  { href: "#", icon: "bi-youtube", label: "YouTube" },
+];
+
+const informationItems = [
+  { icon: "bi-phone-vibrate text-2xl", text: "+1 (555) 123-4567" },
+  { icon: "bi-envelope-paper text-xl", text: "info@printhub.com" },
+  { icon: "bi-globe text-xl", text: "www.printhub.com" },
+  { icon: "bi-geo-alt text-xl", text: "123 Main St, Anytown, USA" },
+];
 
 const Footer = () => {
 
@@ -37,18 +66,16 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex items-center gap-3 mt-5">
-                <a href="#" className="border border-primary hover:bg-primary w-10 h-10 flex items-center justify-center text-white p-2 rounded-full transition-all duration-300 hover:translate-y-1">
-                  <i className="bi bi-facebook"></i>
-                </a>
-                <a href="#" className="border border-primary hover:bg-primary w-10 h-10 flex items-center justify-center text-white p-2 rounded-full transition-all duration-300 hover:translate-y-1">
-                  <i className="bi bi-twitter"></i>
-                </a>
-                <a href="#" className="border border-primary hover:bg-primary w-10 h-10 flex items-center justify-center text-white p-2 rounded-full transition-all duration-300 hover:translate-y-1">
-                  <i className="bi bi-instagram"></i>
-                </a>
-                <a href="#" className="border border-primary hover:bg-primary w-10 h-10 flex items-center justify-center text-white p-2 rounded-full transition-all duration-300 hover:translate-y-1">
-                  <i className="bi bi-youtube"></i>
-                </a>
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.icon}
+                    href={link.href}
+                    aria-label={link.label}
+                    className="border border-primary hover:bg-primary w-10 h-10 flex items-center justify-center text-white p-2 rounded-full transition-all duration-300 hover:translate-y-1"
+                  >
+                    <i className={`bi ${link.icon}`}></i>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -61,41 +88,16 @@ const Footer = () => {
                     Quick Links
                   </h2>
                   <div className="flex flex-col items-start gap-2">
-                    <button
-                      onClick={() => scrollToSection("About")}
-                      className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      About Us
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("Feature")}
-                      className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Feature
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("Services")}
-                      className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Services
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("Testimonial")}
-                      className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Testimonial
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("WhyChooseUs")}
-                      className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Why Choose Us
-                    </button>
+                    {quickLinks.map((link) => (
+                      <button
+                        key={link.id}
+                        onClick={() => scrollToSection(link.id)}
+                        className="footer-link text-lg text-gray-400 cursor-pointer hover:text-white transition-all hover:translate-x-1 duration-300"
+                      >
+                        <i className="ri-arrow-right-double-line text-secondary"></i>
+                        {link.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -105,41 +107,16 @@ const Footer = () => {
                     Others
                   </h2>
                   <div className="flex flex-col gap-2">
-                    <Link
-                      href="#"
-                      className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Rapid & Precising Prototype
-                    </Link>
-                    <Link
-                      href="#"
-                      className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Additive Manufacturing
-                    </Link>
-                    <Link
-                      href="#"
-                      className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Custom Product Design
-                    </Link>
-                    <Link
-                      href="#"
-                      className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Tooling & Equipment
-                    </Link>
-                    <Link
-                      href="#"
-                      className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
-                    >
-                      <i className="ri-arrow-right-double-line text-secondary"></i>
-                      Quality Control
-                    </Link>
+                    {otherLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        className="footer-link text-lg text-gray-400 hover:text-white transition-all hover:translate-x-1 duration-300 cursor-pointer"
+                      >
+                        <i className="ri-arrow-right-double-line text-secondary"></i>
+                        {link.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
@@ -149,18 +126,11 @@ const Footer = () => {
                     Information
                   </h2>
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <i className="bi bi-phone-vibrate text-secondary text-2xl"></i> +1 (555) 123-4567
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <i className="bi bi-envelope-paper text-secondary text-xl"></i> info@printhub.com
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <i className="bi bi-globe text-secondary text-xl"></i> www.printhub.com
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <i className="bi bi-geo-alt text-secondary text-xl"></i> 123 Main St, Anytown, USA
-                    </div>
+                    {informationItems.map((item) => (
+                      <div key={item.text} className="flex items-center gap-2 text-gray-400">
+                        <i className={`bi ${item.icon} text-secondary`}></i> {item.text}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
