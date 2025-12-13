@@ -3,6 +3,7 @@
 import Image from "next/image"
 import AboutImg from "@/public/About-Us-Image-1.jpg"
 import { useState } from "react"
+import CountUp from "react-countup"
 
 const faqData = [
   {
@@ -20,7 +21,7 @@ const faqData = [
 ]
 
 const stats = [
-  { value: 15, suffix: "Th", label: "Years of Excellence" },
+  { value: 15, suffix: "Yrs", label: "Years of Excellence" },
   { value: 2500, suffix: "+", label: "Projects Delivered" },
   { value: 50, suffix: "+", label: "Materials Available" },
   { value: 1250, suffix: "+", label: "Happy Clients" }
@@ -101,6 +102,36 @@ const About = () => {
                 ))
               }
             </div>
+
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 counter mt-20">
+            {
+              stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center"
+                >
+                  <h2 className="text-6xl font-bold Syne text-white tracking-wide mb-3">
+                    <CountUp
+                      start={0}
+                      end={stat.value}
+                      duration={3}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+
+                    <span className="text-primary font-bold ml-1">
+                      {stat.suffix}
+                    </span>
+                  </h2>
+
+                  <p className="text-xl font-light Inter text-gray-400">
+                    {stat.label}
+                  </p>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
