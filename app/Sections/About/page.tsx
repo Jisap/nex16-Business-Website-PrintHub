@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image"
-import AboutImg from "@/public/About-Us-Image-1.jpg"
+import AboutImg from "@/public/About-Us-Image-1.jpg";
 import { useState } from "react"
-import CountUp from "react-countup"
+import CountUp from "react-countup";
 
 const faqData = [
   {
@@ -26,6 +26,25 @@ const stats = [
   { value: 50, suffix: "+", label: "Materials Available" },
   { value: 1250, suffix: "+", label: "Happy Clients" }
 ]
+
+const StatCounter = ({ value, suffix }: { value: number, suffix: string }) => {
+  return (
+    <CountUp
+      start={0}
+      end={value}
+      duration={3}
+      enableScrollSpy
+      scrollSpyOnce
+    >
+      {({ countUpRef }) => (
+        <>
+          <span ref={countUpRef} className="text-stroke text-white" />
+          <span className="text-primary text-stroke font-bold ml-1">{suffix}</span>
+        </>
+      )}
+    </CountUp>
+  );
+}
 
 const About = () => {
 
@@ -112,18 +131,8 @@ const About = () => {
                   key={index}
                   className="flex flex-col items-center"
                 >
-                  <h2 className="text-6xl font-bold Syne text-white tracking-wide mb-3">
-                    <CountUp
-                      start={0}
-                      end={stat.value}
-                      duration={3}
-                      enableScrollSpy
-                      scrollSpyOnce
-                    />
-
-                    <span className="text-primary font-bold ml-1">
-                      {stat.suffix}
-                    </span>
+                  <h2 className="text-6xl font-bold Syne tracking-wide mb-3">
+                    <StatCounter value={stat.value} suffix={stat.suffix} />
                   </h2>
 
                   <p className="text-xl font-light Inter text-gray-400">

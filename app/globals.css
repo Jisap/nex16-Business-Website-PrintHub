@@ -110,3 +110,10 @@ body {
   background-image: radial-gradient(at center center, #02010100 0%, #060A10 65%);
   z-index: -1;
 }
+
+/* Clase de utilidad para texto con contorno */
+.text-stroke {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: currentColor;
+}
