@@ -34,6 +34,7 @@ const Navbar = () => {
         <div className="flex flex-col leading-tight font-sans text-2xl text-gray-300">
           <button
             onClick={handleLogoClick}
+            className="text-5xl StoryScript text-white drop-shadow-md cursor-pointer"
           >
             <span className="text-cyan-400">Print</span>Hub
             <span className="text-cyan-400">3D</span>
