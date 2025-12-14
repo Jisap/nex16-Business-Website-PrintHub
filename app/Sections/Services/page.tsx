@@ -32,7 +32,7 @@ const servicesData = [
   {
     id: "4",
     title: "Design & Developmen",
-    desc: "Our design and development services enable you to create physical models of your designs, allowing you to test and validate your ideas before moving to production.",
+    desc: "Our design and development services enable you to create physical models of your designs.",
     image: service4
   },
   {
@@ -57,7 +57,7 @@ const Services = () => {
           <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8">
             {
               servicesData.slice(0, 2).map((service, index) => (
-                <div key={index} className="flex flex-col gap-5 cursor-pointer rounded-2xl boder border-white hover:border-primary hover:bg-body transition-all dureation-300">
+                <div key={index} className="card-brutalist flex flex-col gap-5 p-6 cursor-pointer rounded-2xl">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -78,9 +78,53 @@ const Services = () => {
               ))
             }
           </div>
+
+          <div className="w-full lg:w-1/2">
+            <div className="title">
+              <h3 className="Inter font-semibold uppercase tracking-wide text-secondary text-2xl">
+                Our Services
+              </h3>
+
+              <h1 className="Syne font-bold my-4 text-4xl md:text-5xl text-white">
+                3D Printing Solutions for Your Business
+              </h1>
+
+              <p className="text-gray-400 Inter">
+                We offer a range of 3D printing services to help you create physical models of your designs, allowing you to test and validate your ideas before moving to production.
+                Our services include rapid prototyping, additive manufacturing, customized solutions, design and development, quality assurance, and production and delivery.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          {servicesData.slice(2, servicesData.length).map((item, index) => (
+            <div
+              key={index}
+              className="card-brutalist flex flex-col gap-5 p-6 cursor-pointer rounded-2xl"
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                className="object-cover w-15 h-15"
+              />
+
+              <div>
+                <h3 className="text-white Syne mb-3 text-2xl font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-300 Inter">
+                  {item.desc}
+                </p>
+
+                <button className="text-xl mt-4 text-primary hover:text-white transition-all duration-300 cursor-pointer">
+                  Read More <i className="ri-arrow-right-double-line"></i>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
