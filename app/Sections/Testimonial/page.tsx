@@ -12,40 +12,40 @@ import Testimonial3 from "@/public/Testimonial-3.jpg";
 const testimonialData = [
   {
     image: Testimonial1,
-    name: "Sarah Johnson",
+    name: "Mike Power",
     role: "Lead Designer, Innovatec",
-    review: "La precisión y calidad de las impresiones 3D es excepcional. Nuestro proceso de prototipado nunca ha sido tan rápido y preciso. ¡Altamente recomendados!"
+    review: "La precisión y calidad de las impresiones 3D es excepcional. Nuestro proceso de prototipado nunca ha sido tan rápido y preciso. ¡Altamente recomendados!. Repetiremos"
   },
   {
     image: Testimonial2,
-    name: "David Chen",
-    role: "Ingeniero Mecánico, BuildRight",
+    name: "Sarah Johnson",
+    role: "Ingeniera Mecánica, BuildRight",
     review: "Trabajar con este equipo cambió las reglas del juego. Manejaron nuestros complejos diseños geométricos con facilidad y entregaron resultados excepcionales a tiempo."
   },
   {
     image: Testimonial3,
-    name: "Maria Rodriguez",
+    name: "Robert Rodriguez",
     role: "CEO, Future Creations",
     review: "De principio a fin, el servicio fue impecable. Los productos finales superaron nuestras expectativas en todos los sentidos. Definitivamente volveremos para más proyectos."
   },
   {
     image: Testimonial1,
-    name: "Sarah Johnson",
+    name: "Mike Power",
     role: "Lead Designer, Innovatec",
-    review: "La precisión y calidad de las impresiones 3D es excepcional. Nuestro proceso de prototipado nunca ha sido tan rápido y preciso. ¡Altamente recomendados!"
+    review: "La precisión y calidad de las impresiones 3D es excepcional. Nuestro proceso de prototipado nunca ha sido tan rápido y preciso. ¡Altamente recomendados! 100%!. Repetiremos"
   },
   {
     image: Testimonial2,
-    name: "David Chen",
-    role: "Ingeniero Mecánico, BuildRight",
+    name: "Sarah Johnson",
+    role: "Ingeniera Mecánica, BuildRight",
     review: "Trabajar con este equipo cambió las reglas del juego. Manejaron nuestros complejos diseños geométricos con facilidad y entregaron resultados excepcionales a tiempo."
   },
   {
     image: Testimonial3,
-    name: "Maria Rodriguez",
+    name: "Robert Rodriguez",
     role: "CEO, Future Creations",
     review: "De principio a fin, el servicio fue impecable. Los productos finales superaron nuestras expectativas en todos los sentidos. Definitivamente volveremos para más proyectos."
-  }
+  },
 ]
 
 const Testimonial = () => {
@@ -81,6 +81,7 @@ const Testimonial = () => {
           0: { slidesPerView: 1 },
         }}
         className="testimonial-swiper"
+        style={{ height: "400px" }}
       >
         {testimonialData.map((testimonial, index) => (
           <SwiperSlide key={index} className="p-4">

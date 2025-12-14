@@ -137,3 +137,58 @@ body {
   /* Mover la tarjeta hacia arriba y hacia la izquierda */
   border-color: var(--primary);
 }
+
+.swiper {
+  overflow: auto;
+}
+
+/* Estilos base para todas las barras de rango */
+.range-bar {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background-color: #e867ea25;
+  border-radius: 50px;
+  font-family: var(--font-syne);
+}
+
+/* Pseudo-elemento para la barra de progreso coloreada */
+.range-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 50px;
+}
+
+/* Pseudo-elemento para mostrar el porcentaje */
+.range-bar::before {
+  position: absolute;
+  top: -40px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Modificador para la primera barra (95%) */
+.range-bar.range-bar-95::after {
+  width: 95%;
+}
+
+.range-bar.range-bar-95::before {
+  content: "95%";
+  left: 90%;
+  /* Ajustado para que quede al final del 95% */
+}
+
+/* Modificador para la segunda barra (76%) */
+.range-bar.range-bar-76::after {
+  width: 76%;
+}
+
+.range-bar.range-bar-76::before {
+  content: "76%";
+  left: 71%;
+  /* Ajustado para que quede al final del 76% */
+}
