@@ -3,6 +3,7 @@ import Hero from './Hero/page'
 import Features from './Features/page'
 import About from './About/page'
 import Services from './Services/page'
+import Banner from './Banner/page'
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <Features />
       <About />
       <Services />
+      <Banner />
     </>
   )
 }
