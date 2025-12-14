@@ -118,7 +118,9 @@ body {
   -webkit-text-stroke-color: currentColor;
 }
 
-.service-bg::after {
+.service-bg::after,
+.project-bg::after,
+.footer-bg::after {
   background-image: radial-gradient(at center center, #0201015b 0%, #060A10 65%);
 }
 
