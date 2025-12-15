@@ -133,6 +133,15 @@ const Navbar = () => {
           lg:hidden fixed top-0 left-0 w-full h-screen bg-body/95 backdrop-blur-sm z-40 transition-transform duration-500 ease-in-out
           ${menuOpen ? "translate-x-0" : "-translate-x-full"}
         `}>
+          {/* Botón de cierre para el menú móvil */}
+          <button
+            className="absolute top-5 right-[7%] text-white text-4xl focus:outline-none transition-transform duration-300 hover:scale-110"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <i className="bi bi-x"></i>
+          </button>
+
           <ul className="flex flex-col items-center justify-center h-full gap-y-6">
             {menuItems.map((item) => (
               <li key={item.id}>

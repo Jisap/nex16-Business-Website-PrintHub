@@ -6,9 +6,6 @@ import Features2 from "@/public/Feature-2.png";
 import Features3 from "@/public/Feature-3.png";
 
 
-
-
-
 const Features = () => {
 
   const features = [
@@ -37,16 +34,16 @@ const Features = () => {
           features.map((feature, index) => (
             <div
               key={index}
-              className="feature-card flex flex-col md:flex-row gap-5 p-6 cursor-pointer rounded-2xl border border-white hover:border-secondary hover:translate-y-1 transition-all duration-300"
+              className="feature-card flex flex-col xl:flex-row items-center xl:items-start gap-5 xl:gap-4 p-6 xl:p-4 cursor-pointer rounded-2xl border border-white hover:border-secondary hover:translate-y-1 transition-all duration-300"
             >
               <Image
                 src={feature.img}
                 alt={feature.title}
-                className="w-15 h-15 object-cover"
+                className="w-20 h-20 object-contain shrink-0"
               />
 
-              <div className="feature-content">
-                <h3 className="text-white Syne mb-3 text-3xl font-bold">{feature.title}</h3>
+              <div className="feature-content text-center xl:text-left">
+                <h3 className="text-white Syne mb-3 text-2xl font-bold">{feature.title}</h3>
                 <p className="text-gray-300 inter">{feature.desc}</p>
               </div>
             </div>
