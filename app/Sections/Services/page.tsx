@@ -54,7 +54,7 @@ const Services = () => {
     <>
       <div className="px-[8%] section-bg service-bg lg:px-[12%] py-20" id="services">
         <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
-          <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="w-full lg:w-1/2 grid grid-cols-1 xl:grid-cols-2 gap-8">
             {
               servicesData.slice(0, 2).map((service, index) => (
                 <div key={index} className="card-brutalist flex flex-col gap-5 p-6 cursor-pointer rounded-2xl">
@@ -66,7 +66,7 @@ const Services = () => {
                   />
 
                   <div>
-                    <h3 className="text-white Syne mb-3 text-2xl font-bold">{service.title}</h3>
+                    <h3 className="text-white Syne mb-3 text-xl font-bold">{service.title}</h3>
 
                     <p className="text-gray-300 Inter">{service.desc}</p>
                   </div>
@@ -79,7 +79,7 @@ const Services = () => {
             }
           </div>
 
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 lg:pl-8">
             <div className="title">
               <h3 className="Inter font-semibold uppercase tracking-wide text-secondary text-2xl">
                 Our Services
@@ -110,7 +110,7 @@ const Services = () => {
               />
 
               <div>
-                <h3 className="text-white Syne mb-3 text-2xl font-bold">
+                <h3 className="text-white Syne mb-3 text-xl font-bold">
                   {item.title}
                 </h3>
 
