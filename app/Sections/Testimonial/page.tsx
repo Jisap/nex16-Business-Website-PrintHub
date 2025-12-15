@@ -85,7 +85,7 @@ const Testimonial = () => {
       >
         {testimonialData.map((testimonial, index) => (
           <SwiperSlide key={index} className="p-4">
-            <div className="testi-card border border-gray-400 cursor-pointer rounded-2xl p-5 transition-all durartion-300 hover:border-primary card-brutalist">
+            <div className="testi-card border border-gray-400 cursor-pointer rounded-2xl p-5 transition-all durartion-300 hover:border-primary card-brutalist mt-2">
               <div className="testi-star text-[#ffcb00] flex gap-2 text-lg mb-5">
                 {
                   Array.from({ length: 4 }).map((_, i) => (

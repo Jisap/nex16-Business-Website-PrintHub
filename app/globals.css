@@ -192,3 +192,20 @@ body {
   left: 71%;
   /* Ajustado para que quede al final del 76% */
 }
+
+.blog-image {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.0)
+}
+
+@media(max-width: 991px) 
+  {
+    .Hero{
+      height: 100%;
+      margin-top: 12%
+    }
+  }

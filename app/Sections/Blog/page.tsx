@@ -94,14 +94,14 @@ const Blog = () => {
           >
             {
               blogData.map((blog, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} className="p-1">
                   <div
-                    className="blog-card border border-gray-400/40 cursor-pointer rounded-2xl p-5 transition-all durartion-300 hover:border-primary card-brutalist flex flex-col"
+                    className="blog-card border border-gray-400/40 cursor-pointer rounded-2xl p-5 transition-all durartion-300 hover:border-primary card-brutalist flex flex-col h-full"
                   >
                     <div className="blog-image">
-                      <Image 
-                        src={blog.image} 
-                        alt={blog.title} 
+                      <Image
+                        src={blog.image}
+                        alt={blog.title}
                         height={250}
                         width={400}
                         className="object-cover transition-all duration-300 w-full h-auto rounded-lg"
