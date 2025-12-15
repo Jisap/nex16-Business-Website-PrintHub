@@ -4,15 +4,15 @@ import { useEffect, useState } from "react"
 
 
 const menuItems = [
-  "Features",
-  "About",
-  "Services",
-  "Banner",
-  "Projects",
-  "Testimonials",
-  "WhyChooseUs",
-  "Blog"
-]
+  { id: "features", label: "Features" },
+  { id: "about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "banner", label: "Banner" },
+  { id: "projects", label: "Projects" },
+  { id: "testimonial", label: "Testimonials" },
+  { id: "whychooseus", label: "Why Choose Us" },
+  { id: "blog", label: "Blog" }
+];
 
 const Navbar = () => {
 
@@ -24,9 +24,41 @@ const Navbar = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleMenuItemClick = (id: string) => {
+    setActiveMenuItem(id);
+    const section = document.getElementById(id);
+    if (section) {
+      const yOffset = -100; // Ajuste para compensar la altura del navbar
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // Se encarga de determinar que sección esta actualmente en la vista del usuario
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      let current: string | null = null;
+      menuItems.forEach((item) => {                                // Se recorre cada sección 
+        const section = document.getElementById(item.id);             // y se obtiene su id
+        if (section) {                                           // En cada sección obtenemos, 
+          const sectionTop = section.offsetTop - 150;            // su posición
+          const sectionHeight = section.offsetHeight;            // y su altura
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) { // Comprueba si la sección actual está en el viewport
+            current = item.id;                                                                   // Si la sección actual es la que se está viendo, se actualiza current
+          }
+        }
+
+      });
+      setActiveMenuItem(current);  // Si la sección actual es la que se está viendo, se activa con current
+    };
+
+    window.addEventListener('scroll', handleScrollSpy);
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-body transition-all duration-500">
@@ -50,12 +82,12 @@ const Navbar = () => {
               >
                 <button
                   className={`
-                    relative p-[5px] nav-menu transition-all duration-[--transition-regular] cursor-pointer
-                    ${ActiveMenuItem === item ? "active-nav text-cyan-400" : "text-white"}  
+                    relative p-[5px] nav-menu transition-all duration-[--transition-regular] cursor-pointer capitalize
+                    ${ActiveMenuItem === item.id ? "active-nav text-cyan-400" : "text-white"}  
                   `}
-                  onClick={() => setActiveMenuItem(item)}
+                  onClick={() => handleMenuItemClick(item.id)}
                 >
-                  {item}
+                  {item.label}
                 </button>
               </li>
             ))
