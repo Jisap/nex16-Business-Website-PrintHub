@@ -32,6 +32,7 @@ const Navbar = () => {
       const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
+    setMenuOpen(false); // Cierra el menú después de hacer clic
   };
 
   const toggleMenu = () => {
@@ -42,12 +43,12 @@ const Navbar = () => {
   useEffect(() => {
     const handleScrollSpy = () => {
       let current: string | null = null;
-      menuItems.forEach((item) => {                                // Se recorre cada sección 
+      menuItems.forEach((item) => {                                   // Se recorre cada sección 
         const section = document.getElementById(item.id);             // y se obtiene su id
-        if (section) {                                           // En cada sección obtenemos, 
-          const sectionTop = section.offsetTop - 150;            // su posición
-          const sectionHeight = section.offsetHeight;            // y su altura
-          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) { // Comprueba si la sección actual está en el viewport
+        if (section) {                                                // En cada sección obtenemos, 
+          const sectionTop = section.offsetTop - 150;                 // su posición
+          const sectionHeight = section.offsetHeight;                 // y su altura
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {     // Comprueba si la sección actual está en el viewport
             current = item.id;                                                                   // Si la sección actual es la que se está viendo, se actualiza current
           }
         }
@@ -61,7 +62,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-body transition-all duration-500">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-body/80 backdrop-blur-sm transition-all duration-500">
       <div className="flex justify-between items-center px-[6%] lg:px-[4%] py-4">
         <div className="flex flex-col leading-tight font-sans text-2xl text-gray-300">
           <button
@@ -119,9 +120,35 @@ const Navbar = () => {
           </div>
         </div>
 
-        <button className="text-white text-3xl lg:hidden focus:outline-none transition-transform duration-300 hover:scale-110">
+        <button
+          className="text-white text-3xl lg:hidden focus:outline-none transition-transform duration-300 hover:scale-110"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           <i className={`bi ${menuOpen ? "bi-x" : "bi-list"}`}></i>
         </button>
+
+        {/* Menú para móvil */}
+        <div className={`
+          lg:hidden fixed top-0 left-0 w-full h-screen bg-body/95 backdrop-blur-sm z-40 transition-transform duration-500 ease-in-out
+          ${menuOpen ? "translate-x-0" : "-translate-x-full"}
+        `}>
+          <ul className="flex flex-col items-center justify-center h-full gap-y-6">
+            {menuItems.map((item) => (
+              <li key={item.id}>
+                <button
+                  className={`
+                  relative p-[5px] nav-menu text-2xl capitalize transition-all duration-[--transition-regular] cursor-pointer
+                  ${ActiveMenuItem === item.id ? "active-nav text-cyan-400" : "text-white"}
+                  `}
+                  onClick={() => handleMenuItemClick(item.id)}
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   )

@@ -9,11 +9,11 @@ const Hero = () => {
     <div className="Hero section-bg px-[8%] lg:px-[12%]">
       <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-5">
         <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <h4 className="text-secondary Inter uppercase text-xl">
+          <h4 className="text-secondary Inter uppercase text-xl mb-10">
             From Concept to Creation
           </h4>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold Syne my-4 text-gray-300 ">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold Syne my-4 text-gray-300 mb-10">
             Precision 3D Printing Solutions
           </h1>
 
