@@ -9,6 +9,7 @@ const WhyChoseUs = () => {
     <>
       <div className="px-[8%] lg:px-[12%] py-20 section-bg" id="whychooseus">
         <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-10">
+          {/* Left Side */}
           <div className="w-full lg:w-1/2">
             <div className="title">
               <h3 className="Inter font-semibold uppercase tracking-wide text-secondary">
@@ -61,6 +62,7 @@ const WhyChoseUs = () => {
             </div>
           </div>
 
+          {/* Right Side */}
           <div className="w-full lg:w-1/2">
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-8 text-white">
