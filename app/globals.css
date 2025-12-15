@@ -202,10 +202,20 @@ body {
   transform: scale(1.0)
 }
 
-@media(max-width: 991px) 
-  {
-    .Hero{
-      height: 100%;
-      margin-top: 12%
-    }
+@media(max-width: 991px) {
+  .Hero {
+    height: 100%;
+    margin-top: 20%;
+    padding-bottom: 7rem;
+    /* 80px */
   }
+}
+
+@media(max-width: 575px) {
+  .Hero {
+    height: 100%;
+    margin-top: 25%;
+    padding-bottom: 5rem;
+    /* 80px */
+  }
+}
