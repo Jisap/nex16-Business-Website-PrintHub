@@ -95,11 +95,11 @@ const About = () => {
                     <button
                       onClick={() => toggle(index)}
                       className={`
-                        w-full flex justify-between items-center px-8 py-2 cursor-pointer border border-white text-center rounded-full transition-all duration-300
+                        w-full flex justify-between items-center px-4 sm:px-8 py-2 cursor-pointer border border-white text-center rounded-full transition-all duration-300
                         ${openIndex === index ? "bg-primary text-white border-none" : ""}  
                       `}
                     >
-                      <span className="text-2xl pt-2 Syne text-white font-bold">{faq.question}</span>
+                      <span className="text-lg md:text-2xl pt-2 Syne text-white font-bold">{faq.question}</span>
 
                       {openIndex === index ? (
                         <i className="bi bi-chevron-double-down text-white text-xl"></i>
