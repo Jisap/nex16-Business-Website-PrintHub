@@ -74,7 +74,7 @@ const About = () => {
             />
           </motion.div>
 
-          {/* Contenido lado izquierdo*/}
+          {/* Contenido lado izquierdo + FAQ en lado derecho*/}
           <motion.div
             variants={staggerContainer(0.3, 0.5)}
             initial="hidden"
@@ -144,7 +144,7 @@ const About = () => {
 
           </motion.div>
 
-          {/* Contenido lado derecho */}
+          {/* Counters */}
           <motion.div
             variants={staggerContainer(0.2, 0.2)}
             initial="hidden"
@@ -154,7 +154,8 @@ const About = () => {
           >
             {
               stats.map((stat, index) => (
-                <div
+                <motion.div
+                  variants={fadeIn('up', 0.2 * (index + 1))}
                   key={index}
                   className="flex flex-col items-center"
                 >
@@ -165,7 +166,7 @@ const About = () => {
                   <p className="text-xl font-light Inter text-gray-400">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))
             }
           </motion.div>
