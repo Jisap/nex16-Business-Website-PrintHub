@@ -3,6 +3,8 @@
 import Image from "next/image"
 import AboutImg from "@/public/About-Us-Image-1.jpg";
 import { useState } from "react"
+import { motion, Variants } from "framer-motion";
+import { fadeIn, staggerContainer, zoomIn } from "@/app/lib/variants";
 import CountUp from "react-countup";
 
 const faqData = [
@@ -58,37 +60,56 @@ const About = () => {
     <>
       <div className="px-[8%] lg:px-[12%] py-20" id="about">
         <div className="about-image">
-          <Image
-            src={AboutImg}
-            alt="About Image"
-            className="rounded-2xl"
-          />
+          {/* Imagen principal */}
+          <motion.div
+            variants={zoomIn(0.2, 1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.4 }}
+          >
+            <Image
+              src={AboutImg}
+              alt="About Image"
+              className="rounded-2xl"
+            />
+          </motion.div>
 
-          <div className="flex flex-col lg:flex-row gap-5 items-center my-20">
+          {/* Contenido lado izquierdo*/}
+          <motion.div
+            variants={staggerContainer(0.3, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.4 }}
+            className="flex flex-col lg:flex-row gap-5 items-center my-20"
+          >
             <div className="w-full lg:w-1/2">
-              <div className="title">
+              <motion.div
+                variants={fadeIn('right', 0.2)}
+                className="title"
+              >
                 <h3 className="Inter font-semibold uppercase tracking-wide text-secondary">
                   Who We Are
                 </h3>
 
-                <h1 className="font-bold Syne my-4 text-4xl md:text-5xl text-white">
+                <h1 className="font-bold Syne my-4 text-4xl md:text-5xl text-white" >
                   Shaping the future of Manufacturing
                 </h1>
 
-                <p className="text-gray-400 Inter text-lg">
+                <p className="text-gray-400 Inter text-lg" >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, neque quasi nobis tempore quis tempora ullam, soluta obcaecati saepe consequuntur ea libero dicta itaque magni exercitationem nulla, iure vel officiis!
                 </p>
 
                 <button className="btn mt-8 px-8 py-2 border border-primary bg-primary rounded-full text-xl hover:bg-transparent cursor-pointer transition-all duration-300 hover:text-primary">
                   More About Us
                 </button>
-              </div>
+              </motion.div>
             </div>
 
             <div className="w-full lg:w-1/2">
               {
                 faqData.map((faq, index) => (
-                  <div
+                  <motion.div
+                    variants={fadeIn('left', 0.2 * (index + 1))}
                     key={index}
                     className="overflow-hidden transition-all duration-300 py-2"
                   >
@@ -116,15 +137,21 @@ const About = () => {
                         {faq.answer}
                       </p>
                     </div>
-
-                  </div>
+                  </motion.div>
                 ))
               }
             </div>
 
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 counter mt-20">
+          {/* Contenido lado derecho */}
+          <motion.div
+            variants={staggerContainer(0.2, 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 counter mt-20"
+          >
             {
               stats.map((stat, index) => (
                 <div
@@ -141,7 +168,7 @@ const About = () => {
                 </div>
               ))
             }
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
