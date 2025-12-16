@@ -58,7 +58,7 @@ const Services = () => {
         variants={staggerContainer(0.3, 0.5)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="px-[8%] section-bg service-bg lg:px-[12%] py-20" id="services">
         <motion.div
           variants={staggerContainer(0.3, 0.5)}
@@ -66,7 +66,7 @@ const Services = () => {
           <motion.div variants={staggerContainer(0.3, 0.5)} className="w-full lg:w-1/2 grid grid-cols-1 xl:grid-cols-2 gap-8">
             {
               servicesData.slice(0, 2).map((service, index) => (
-                <motion.div variants={fadeIn('up', 0.2 * (index + 1))} key={index} className="card-brutalist flex flex-col gap-5 p-6 cursor-pointer rounded-2xl">
+                <motion.div variants={fadeIn('up', 0.2 * (index + 1))} key={index} className="card-brutalist flex flex-col gap-5 p-6 cursor-pointer rounded-2xl" >
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -80,7 +80,7 @@ const Services = () => {
                     <p className="text-gray-300 Inter">{service.desc}</p>
                   </div>
 
-                  <motion.button variants={fadeIn('up', 0.2 * (index + 1) + 0.2)} className="text-xl mt-4 text-primary hover:text-white transition-all duration-300 cursor-pointer">
+                  <motion.button variants={fadeIn('up', 0.3 * (index + 1))} className="text-xl mt-4 text-primary hover:text-white transition-all duration-300 cursor-pointer">
                     Read More <i className="ri-arrow-right-double-line"></i>
                   </motion.button>
                 </motion.div>
@@ -90,15 +90,15 @@ const Services = () => {
 
           <motion.div variants={fadeIn('right', 0.2)} className="w-full lg:w-1/2 lg:pl-8">
             <motion.div variants={staggerContainer(0.3, 0.5)} className="title">
-              <motion.h3 variants={fadeIn('right', 0.4)} className="Inter font-semibold uppercase tracking-wide text-secondary text-2xl">
+              <motion.h3 variants={fadeIn('right', 0.2)} className="Inter font-semibold uppercase tracking-wide text-secondary text-2xl">
                 Our Services
               </motion.h3>
 
-              <motion.h1 variants={fadeIn('right', 0.6)} className="Syne font-bold my-4 text-4xl md:text-5xl text-white">
+              <motion.h1 variants={fadeIn('right', 0.3)} className="Syne font-bold my-4 text-4xl md:text-5xl text-white">
                 3D Printing Solutions for Your Business
               </motion.h1>
 
-              <motion.p variants={fadeIn('right', 0.8)} className="text-gray-400 Inter">
+              <motion.p variants={fadeIn('right', 0.4)} className="text-gray-400 Inter">
                 We offer a range of 3D printing services to help you create physical models of your designs, allowing you to test and validate your ideas before moving to production.
                 Our services include rapid prototyping, additive manufacturing, customized solutions, design and development, quality assurance, and production and delivery.
               </motion.p>
@@ -110,7 +110,7 @@ const Services = () => {
           variants={staggerContainer(0.3, 0.5)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
           {servicesData.slice(2, servicesData.length).map((item, index) => (
             <motion.div
@@ -133,7 +133,7 @@ const Services = () => {
                   {item.desc}
                 </p>
 
-                <motion.button variants={fadeIn('up', 0.2 * (index + 1) + 0.2)} className="text-xl mt-4 text-primary hover:text-white transition-all duration-300 cursor-pointer">
+                <motion.button variants={fadeIn('up', 0.3 * (index + 1))} className="text-xl mt-4 text-primary hover:text-white transition-all duration-300 cursor-pointer">
                   Read More <i className="ri-arrow-right-double-line"></i>
                 </motion.button>
               </div>

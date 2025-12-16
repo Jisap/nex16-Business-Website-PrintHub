@@ -1,5 +1,7 @@
 "use client"
 
+import { motion } from "framer-motion"
+import { fadeIn, staggerContainer } from "@/app/lib/variants"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -51,8 +53,14 @@ const Footer = () => {
 
   return (
     <>
-      <div className="px-[8%] lg:px-[12%] pt-15">
-        <div className="p-8 rounded-2xl section-bg footer-bg border border-gray-400 overflow-hidden mb-4">
+      <motion.div
+        variants={staggerContainer(0.3, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="px-[8%] lg:px-[12%] pt-15">
+        <motion.div
+          variants={fadeIn('up', 0.2)} className="p-8 rounded-2xl section-bg footer-bg border border-gray-400 overflow-hidden mb-4">
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Columna Izquierda: Logo y Redes Sociales */}
             <div className="lg:w-1/3 flex flex-col">
@@ -136,7 +144,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Copyright */}
         <div className="mt-20 p-5 border-t border-gray-500">
@@ -149,7 +157,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

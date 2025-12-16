@@ -72,7 +72,7 @@ const Proyects = () => {
           variants={staggerContainer(0.3, 0.5)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5 z-10">
           {
             ProjectData.slice(0, 3).map((project) => (
@@ -107,7 +107,7 @@ const Proyects = () => {
           variants={staggerContainer(0.3, 0.5)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {
             ProjectData.slice(3).map((project) => (

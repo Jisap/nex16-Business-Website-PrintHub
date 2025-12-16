@@ -18,10 +18,10 @@ export const fadeIn = (direction: 'up' | 'down' | 'left' | 'right', delay: numbe
       x: 0,
       opacity: 1,
       transition: {
-        type: 'tween',
-        duration: 1.4,
+        type: 'spring',
+        damping: 15,
+        stiffness: 80,
         delay: delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
       },
     },
   };

@@ -45,6 +45,7 @@
 body {
   background-color: var(--body-color);
   color: var(--white);
+  overflow-x: hidden;
 }
 
 /* .nav-menu {
@@ -139,7 +140,7 @@ body {
 }
 
 .swiper {
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Estilos base para todas las barras de rango */

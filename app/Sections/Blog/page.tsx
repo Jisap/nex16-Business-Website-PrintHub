@@ -8,6 +8,8 @@ import Image from "next/image"
 import Blog1 from "@/public/Blog-1.jpg"
 import Blog2 from "@/public/Blog-2.jpg"
 import Blog3 from "@/public/Blog-3.jpg"
+import { motion } from "framer-motion"
+import { fadeIn, staggerContainer } from "@/app/lib/variants"
 
 
 const blogData = [
@@ -64,22 +66,29 @@ const blogData = [
 const Blog = () => {
   return (
     <>
-      <div className="px-[8%] lg:px-[12%] py-20" id="blog">
-        <div className="title flex flex-col items-center justify-center text-center">
-          <h3 className="Inter font-semibold uppercase tracking-wide text-secondary">
+      <motion.div
+        variants={staggerContainer(0.3, 0.5)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="px-[8%] lg:px-[12%] py-20" id="blog">
+        <motion.div
+          variants={staggerContainer(0.3, 0.5)}
+          className="title flex flex-col items-center justify-center text-center">
+          <motion.h3 variants={fadeIn('up', 0.2)} className="Inter font-semibold uppercase tracking-wide text-secondary">
             Blog & News
-          </h3>
+          </motion.h3>
 
-          <h1 className="Syne font-bold my-4 text-4xl md:text-5xl text-white">
+          <motion.h1 variants={fadeIn('up', 0.4)} className="Syne font-bold my-4 text-4xl md:text-5xl text-white">
             3D Printing in the News
-          </h1>
+          </motion.h1>
 
-          <p className="text-gray-400 Inter lg:w-[75%]">
+          <motion.p variants={fadeIn('up', 0.6)} className="text-gray-400 Inter lg:w-[75%]">
             The latest news and updates from the world of 3D printing. Stay up to date with the latest trends and developments in the industry.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="mt-10">
+        <motion.div variants={fadeIn('up', 0.8)} className="mt-10">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}
@@ -136,8 +145,8 @@ const Blog = () => {
               ))
             }
           </Swiper>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   )
 }
