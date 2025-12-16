@@ -154,8 +154,7 @@ const About = () => {
           >
             {
               stats.map((stat, index) => (
-                <motion.div
-                  variants={fadeIn('up', 0.2 * (index + 1))}
+                <div
                   key={index}
                   className="flex flex-col items-center"
                 >
@@ -166,7 +165,7 @@ const About = () => {
                   <p className="text-xl font-light Inter text-gray-400">
                     {stat.label}
                   </p>
-                </motion.div>
+                </div>
               ))
             }
           </motion.div>
