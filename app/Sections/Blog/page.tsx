@@ -5,63 +5,11 @@ import { Autoplay } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/autoplay"
 import Image from "next/image"
-import Blog1 from "@/public/Blog-1.jpg"
-import Blog2 from "@/public/Blog-2.jpg"
-import Blog3 from "@/public/Blog-3.jpg"
 import { motion } from "framer-motion"
 import { fadeIn, staggerContainer } from "@/app/lib/variants"
+import { blogSliderData } from "@/app/lib/blogData"
+import Link from "next/link"
 
-
-const blogData = [
-  {
-    image: Blog1,
-    title: "Designing for 3D Printing: Best Practices and Tips",
-    date: "September 15, 2024",
-    comments: "0",
-    desc: "Discover the best practices and tips for designing for 3D printing. Learn how to create designs that are optimized for 3D printing and how to use 3D printing to create physical models of your designs.",
-    tag: "Read more"
-  },
-  {
-    image: Blog2,
-    title: "The evolution of 3D printing technology: From Concept to Reality",
-    date: "October 20, 2024",
-    comments: "0",
-    desc: "Discover the evolution of 3D printing technology from concept to reality. Learn how 3D printing has evolved over the years and how it is now used in a variety of industries.",
-    tag: "Read more"
-  },
-  {
-    image: Blog3,
-    title: "3D printing: The future of manufacturing",
-    date: "November 10, 2024",
-    comments: "0",
-    desc: "Discover the future of manufacturing with 3D printing. Learn how 3D printing is changing the way we manufacture products and how it is now used in a variety of industries.",
-    tag: "Read more"
-  },
-  {
-    image: Blog1,
-    title: "Designing for 3D Printing: Best Practices and Tips",
-    date: "September 15, 2024",
-    comments: "0",
-    desc: "Discover the best practices and tips for designing for 3D printing. Learn how to create designs that are optimized for 3D printing and how to use 3D printing to create physical models of your designs.",
-    tag: "Read more"
-  },
-  {
-    image: Blog2,
-    title: "The evolution of 3D printing technology: From Concept to Reality",
-    date: "October 20, 2024",
-    comments: "0",
-    desc: "Discover the evolution of 3D printing technology from concept to reality. Learn how 3D printing has evolved over the years and how it is now used in a variety of industries.",
-    tag: "Read more"
-  },
-  {
-    image: Blog3,
-    title: "3D printing: The future of manufacturing",
-    date: "November 10, 2024",
-    comments: "0",
-    desc: "Discover the future of manufacturing with 3D printing. Learn how 3D printing is changing the way we manufacture products and how it is now used in a variety of industries.",
-    tag: "Read more"
-  },
-]
 
 const Blog = () => {
   return (
@@ -102,7 +50,7 @@ const Blog = () => {
             className="blog-swiper"
           >
             {
-              blogData.map((blog, index) => (
+              blogSliderData.map((blog, index) => (
                 <SwiperSlide key={index} className="p-1">
                   <div
                     className="blog-card border border-gray-400/40 cursor-pointer rounded-2xl p-5 transition-all durartion-300 hover:border-primary card-brutalist flex flex-col h-full"
@@ -137,9 +85,9 @@ const Blog = () => {
                       {blog.desc}
                     </p>
 
-                    <button className="text-primary flex items-center cursor-pointer gap-2 text-lg font-bold Syne hover:text-white transition-all duration-300">
+                    <Link href={`/Sections/Blog/${blog.slug}`} className="text-primary flex items-center cursor-pointer gap-2 text-lg font-bold Syne hover:text-white transition-all duration-300">
                       {blog.tag} <i className="bi bi-chevron-double-right pt-1"></i>
-                    </button>
+                    </Link>
                   </div>
                 </SwiperSlide>
               ))
